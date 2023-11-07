@@ -23,7 +23,8 @@ def main():
     print("----------------Menu-----------------")
     print("=====================================")
 
-    principal = float(input("Enter the principal amount: R "))
+    principal_input = float(input("Enter the principal amount: R "))
+    principal = float(principal_input.replace(" ", ""))
     rate = float(input("Enter the annual interest rate (%): "))
     time = float(input("Enter the time period (in years): "))
 
