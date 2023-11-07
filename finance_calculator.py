@@ -18,37 +18,39 @@ def calculate_bond(principal, rate, time):
     return bond_value
 
 def main():
-    print("=====================================")
-    print(" Thee Deciders Financial Calculator  ")
-    print("----------------Menu-----------------")
-    print("=====================================")
 
-    principal_input = float(input("Enter the principal amount: R "))
-    principal = float(principal_input.replace(" ", ""))
-    rate = float(input("Enter the annual interest rate (%): "))
-    time = float(input("Enter the time period (in years): "))
+    while True:
 
-    investment_type = input("Enter 'I' for investment or 'B' for bond: ")
+        print("=====================================")
+        print(" Thee Deciders Financial Calculator  ")
+        print("----------------Menu-----------------")
+        print("=====================================")
+        principal_input = float(input("Enter the principal amount: R "))
+        principal = float(principal_input.replace(" ", ""))
+        rate = float(input("Enter the annual interest rate (%): "))
+        time = float(input("Enter the time period (in years): "))
 
-    if investment_type.upper() == 'I':
-        invest = input("Enter 'S' for Simple interest or 'C' for Compound interest: ")
-        if invest.upper() == 'S':
-            future_value_s = calculate_investment_s(principal, rate, time)
-            print(f"The future value of your investment will be: R{future_value_s:.2f}")
+        investment_type = input("Enter 'I' for investment or 'B' for bond: ")
 
-        elif invest.upper() == 'C':
-            future_value_c = calculate_investment_s(principal, rate, time)
-            print(f"The future value of your investment will be: R{future_value_c:.2f}")
+        if investment_type.upper() == 'I':
+            invest = input("Enter 'S' for Simple interest or 'C' for Compound interest: ")
+            if invest.upper() == 'S':
+                future_value_s = calculate_investment_s(principal, rate, time)
+                print(f"The future value of your investment will be: R{future_value_s:.2f}")
+
+            elif invest.upper() == 'C':
+                future_value_c = calculate_investment_s(principal, rate, time)
+                print(f"The future value of your investment will be: R{future_value_c:.2f}")
+
+            else:
+                print("Invalid input. Please enter 'S' for Simple interest or 'C' for compound.")
+
+        elif investment_type.upper() == 'B':
+            bond_value = calculate_bond(principal, rate, time)
+            print(f"The value of the bond will be: R{bond_value:.2f}")
 
         else:
-            print("Invalid input. Please enter 'S' for Simple interest or 'C' for compound.")
-
-    elif investment_type.upper() == 'B':
-        bond_value = calculate_bond(principal, rate, time)
-        print(f"The value of the bond will be: R{bond_value:.2f}")
-
-    else:
-        print("Invalid input. Please enter 'I' for investment or 'B' for bond.")
+            print("Invalid input. Please enter 'I' for investment or 'B' for bond.")
 
 if __name__ == "__main__":
 
