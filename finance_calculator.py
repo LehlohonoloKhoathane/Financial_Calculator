@@ -1,21 +1,10 @@
 import math
 
-def clean_input(input_str):
-    # Remove spaces, commas, and unnecessary special characters
-    cleaned_input = ''.join(char for char in input_str if char.isdigit() or char == '.')
-
-    # Check for valid decimal point placement
-    if cleaned_input.count('.') > 1 or cleaned_input.startswith('.') or cleaned_input.endswith('.'):
-        return None
-    return cleaned_input
-
-#function of simple interest calculation
 def calculate_investment_s(principal, rate, time):
     """This function calculates simple interest"""
     future_value_s = principal*(1+(rate/100)*time)
     return future_value_s
 
-#
 def calculate_investment_c(principal, rate, time):
     """This function calculates the compound interest"""
     future_value_c = principal* math.pow((1+(rate/100)),time)
@@ -65,7 +54,7 @@ def main():
                         break
                     else:
                         print("Invalid input. Enter valid time")
-                        
+
                 while True:
                     invest = input("Enter 'S' for Simple interest or 'C' for Compound interest: ")
                     if invest.upper() == 'S':
@@ -114,13 +103,6 @@ def main():
                     else:
                         print("Invalid input. Enter valid time")
 
-                    #if cleaned_principal_input is None:
-                    #    print("Invalid input. Please enter a valid principal amount.")
-                    #    return
-            
-                #principal = float(cleaned_principal_input)
-                #rate = float(input("Enter the annual interest rate (%): "))
-                #time = float(input("Enter the time period (in years): "))
                 bond_value = calculate_bond(principal, rate, time)
                 print(f"The value of the bond will be: R{bond_value:.2f}")
                 break
@@ -134,12 +116,6 @@ def main():
             
             if another_calculation.upper() == 'NO':
                 break
-        
-        #if another_calculation.lower() == 'no':
-        #    break
-        #another_calculation = input("Do you want to perform another calculation? (y/n): ")
-        #if another_calculation.upper() != 'Y':
-        #    break
 
 if __name__ == "__main__":
     main()
